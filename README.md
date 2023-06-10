@@ -1,2 +1,2 @@
-# LeetCode_exercises
-LeetCode problems with my solutions
+##Coding Problems
+Practicing coding problems from the internet
