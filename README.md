@@ -1,6 +1,7 @@
-This repository contains my solutions to the coding exercises i found in the internet.
+# About
+This repository contains ![#f03c15] 'my solutions' to the coding exercises.
 
-##Notes:
+## Notes:
 - Detailed Explanations: Describe the algorithm you used to solve this problem. Include any insights you used to solve this problem.
 - Images that help explain the algorithm.
 - Language and Code you used to pass the problem.
