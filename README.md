@@ -1,5 +1,5 @@
 # About
-This repository contains $${\color{red}'my\space \ solutions'}$$ to the coding exercises i found online.
+$${\color{default}This repository contains \space \color{red}'my\space \ solutions' \space \color{default} to the coding exercises found online.}$$
 
 ## Notes:
 - Detailed Explanations: Describe the algorithm you used to solve this problem. Include any insights you used to solve this problem.
