@@ -1,9 +1,6 @@
 #Description:
 Given a zero-based permutation nums (0-indexed), build an array ans of the same length where ans[i] = nums[nums[i]] for each 0 <= i < nums.length and return it.
-
 A zero-based permutation nums is an array of distinct integers from 0 to nums.length - 1 (inclusive).
-
- 
 
 Example 1:
 
@@ -24,7 +21,6 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
  
 
 Constraints:
-
 1 <= nums.length <= 1000
 0 <= nums[i] < nums.length
 The elements in nums are distinct.
@@ -33,9 +29,7 @@ The elements in nums are distinct.
 Follow-up: Can you solve it without using an extra space (i.e., O(1) memory)?
 
 
--------------SOLUTION--------------------------------------------------------------------------------
-
-
+-------------SOLUTION for the Followup question--------------------------------------------------------------------------------
 # Intuition
 <!-- Describe your first thoughts on how to solve this problem. -->
 In order to have a space complexity of O(1), we must solve the problem without using extra space, therefore by performing the array transformation in-place.
@@ -43,20 +37,20 @@ In order to have a space complexity of O(1), we must solve the problem without u
 # Approach
 <!-- Describe your approach to solving the problem. -->
 One way to solve this problem is by writing the new values within the original array itself without using data structures. 
-In this code, we used two loops to ensure that the values are extracted correctly. 
-The first for-loop  serves to encode both the current and new value at each index in the 'nums' array. 
+In this code, we used two loops to extract the values correctly. 
+The first for-loop  encodes the current and new value at each index in the 'nums' array. 
 Let us consider this array: nums = [0,2,1,5,3,4]
-1. For each index i from 0 to n-1 where n is the lengh of nums (=6), we calculate the current value at index i in a way that avoids overwriting the original value: 
+1. For each index i from 0 to n-1 where n is the length of nums (=6), we calculate the current value at index i in a way that avoids overwriting the original value: 
     i=0 -> nums[0]=0
 2. Then we calculate the new value that should be stored at index i using nums[nums[i]] % n :
     nums[nums[0]]= nums[0]= 0. 
 Now we  take module n to ensure that it fits within the bounds of the array: 
     0 % n = 0 % 6 = 0
-3. We scale the new value by n to ensure that it doesnt interfere with the current value at index i: 
+3. We scale the new value by n to ensure that it doesn't interfere with the current value at index i: 
     0 * n = 0 * 6 = 0
 4. Finally, we add this scaled value back to nums[i]. 
     nums[0] + new value = 0 + 0 = 0 
-As a result, nums[i] now contains both the current value and new values encoded within the single integer. 
+As a result, nums[i] now contain both the current value and new values encoded within the single integer. 
 
 nums= nums' = [ 0,2,1,5,3,4]
 
@@ -112,7 +106,7 @@ Result of the first for-loop:
 nums= nums' = [ 0,8,13,29,33,10]
 If we divide each element by n, we extract the output: 
 nums=[0, 1, 2, 4, 5, 3]
-which represens the desired result of the first problem. 
+which represents the desired result of the first problem. 
 
 # Code
 ```
@@ -134,12 +128,12 @@ class Solution {
 # Complexity
 - Time complexity:O(n) Linear
 <!-- Add your time complexity here, e.g. $$O(n)$$ -->
-The code consists of two for-loops, both iterate through the array 'nums' of length n. 
-The first loops that encodes the temporary values has time complexity of O(n).
-The second loops that decodes the desired result by dividing each element by n has also time complexity of O(n). 
+The code consists of two for-loops, both iterating through the array 'nums' of length n. 
+The first loop that encodes the temporary values has a time complexity of O(n).
+The second loop that decodes the desired result by dividing each element by n has also a time complexity of O(n). 
 Therefore, the overall time complexity is O(n) + O(n) = O(n)
 
 - Space complexity: O(1) Constant
 <!-- Add your space complexity here, e.g. $$O(n)$$ -->
-The code uses a constant amount of extra spaces regardless the input size. It doesnt create any additional data structures whose usage depends on the input size.  Therefore the space complexity is O(1).
+The code uses a constant amount of extra spaces regardless of the input size. It doesn't create any additional data structures whose usage depends on the input size.  Therefore the space complexity is O(1).
 
