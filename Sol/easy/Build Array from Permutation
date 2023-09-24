@@ -29,6 +29,7 @@ The elements in nums are distinct.
 
 ----SOLUTION 1 ---------------------------------------------------------------------------------------------------------------------
 # Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
 My first idea to solve this problem is by using the for-loop approach. However, since this approach is using iterative loop, the complexity depends on the number of iterations implemented in the code, which is linear in this case. . This is not the most optimized solution in terms of time complexity but it is straightforward,  most common and  the easiest to understand.
 
 # Approach
@@ -73,6 +74,9 @@ This means that the required space for ans is directly proportional to the size 
 
 2. Since i dont use other data structures or memory allocations in this code and the variables and operations used constant amount of space, 
  therefore the space complexity is O(n).
+
+
+
 
 
 -----SOLUTION 2 -------------------------------------------------------------------------------------------------------------------------------
