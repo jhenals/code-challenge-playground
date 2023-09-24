@@ -1,0 +1,80 @@
+You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.
+A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
+
+
+Example 1:
+Input: accounts = [[1,2,3],[3,2,1]]
+Output: 6
+Explanation:
+1st customer has wealth = 1 + 2 + 3 = 6
+2nd customer has wealth = 3 + 2 + 1 = 6
+Both customers are considered the richest with a wealth of 6 each, so return 6.
+
+Example 2:
+Input: accounts = [[1,5],[7,3],[3,5]]
+Output: 10
+Explanation: 
+1st customer has wealth = 6
+2nd customer has wealth = 10 
+3rd customer has wealth = 8
+The 2nd customer is the richest with a wealth of 10.
+
+Example 3:
+Input: accounts = [[2,8,7],[7,1,3],[1,9,5]]
+Output: 17
+
+Constraints:
+m == accounts.length
+n == accounts[i].length
+1 <= m, n <= 50
+1 <= accounts[i][j] <= 100
+
+
+-----SOLUTION-------------------------------------------
+
+
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+My first thought to solve this problem is to write a code that iterates through each person's accounts, calculate their total wealth by summing up the amounts in their accounts and keep track of the maximum wealth found so far. 
+
+# Approach
+<!-- Describe your approach to solving the problem. -->
+Breakdown of the approach: 
+1. Initialize 'tot_max' to 0. This variable will keep track of the maximum wealth found among all the people. 
+2. Use a nested loop to iterate through each person's account: 
+    The outer loop (indexed by i ) iterates through each person in the accounts array. 
+    The inner loop (indexed by j) iterates through each account of the current person i. 
+3. Inside the inner loop, calculate the total wealth of the current person (i) by summing up the amounts in their accounts (account[i][j]) and adding to the current total wealth 
+4. Check if the acc_tot of the current person is greater than or equal to the current maximum  wealth tot_max. If it is, update tot_max. 
+5. After processing all people and their accounts, return the value stored in tot_max as the maximum wealth among all the people. 
+
+# Complexity
+- Time complexity: O(m*n)
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+The code uses two nested loops to iterate through the 'accounts' array. The outer loop runs accounts.length times which represents the number of people while the inner loop runs accounts[0].length times which represents the number of accounts for each person. 
+As a result, the time complexity is O(m*n) where: 
+m= is the number of people
+n= number of account of each person
+
+- Space complexity: O(1)
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+The code uses a constant amount of extra space for variables like tot_max, acc_tot, i, and j. These variables do not depend on the size of the input data. Therefore the space complexity is O(1) indicating that the space used by the algorithm is constant and does not depend on the input size. 
+
+# Code
+```
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int tot_max= 0;
+        for ( int i=0; i<accounts.length; i++){
+            int acc_tot=0;
+            for (int j=0; j<accounts[0].length; j++){
+                acc_tot+=accounts[i][j];
+            }
+            if(acc_tot >= tot_max){
+                tot_max= acc_tot;
+            }
+        }
+        return tot_max;
+    }
+}
+```
