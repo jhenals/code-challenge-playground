@@ -42,12 +42,12 @@ word1 and word2 consist of lowercase English letters.
 
 # My Solution
 
-# Approach
+## Approach
 <!-- Describe your approach to solving the problem. -->
 I used StringBuilder so i can easily use the append method to append the element in i-th position to my return variable. I used the length of the input with the smallest dimension(length) for my for loop so that i can easily apped the remaining substring of the input with the longest size. 
 Ultimately, because i used StringBuilder, i need to transform res into a string using toString method.
 
-# Complexity
+## Complexity
 - Time complexity:O(minLength + maxLength)
 <!-- Add your time complexity here, e.g. $$O(n)$$ -->
 The time complexity of your mergeAlternately method is O(minLength + maxLength), where minLength is the length of the shorter input string (word1 or word2), and maxLength is the length of the longer input string.
@@ -64,7 +64,7 @@ The res StringBuilder has a space complexity of O(minLength + maxLength), as it 
 The longerString variable has a space complexity of O(maxLength), as it holds the reference to the longer input string.
 Therefore, the overall space complexity is O(minLength + maxLength).
 
-# Code
+## Code
 ```
 class Solution {
     public String mergeAlternately(String word1, String word2) {
