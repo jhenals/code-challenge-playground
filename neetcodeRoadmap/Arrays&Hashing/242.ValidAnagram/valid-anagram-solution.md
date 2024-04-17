@@ -15,7 +15,6 @@ To determine if s and t are anagrams, we can compare their sorted character arra
 
 - Space complexity:  O(n)
 1. The space complexity is O(n) because we are using additional space (sCharArr and tCharArr) to store the character arrays, where n is the length of the strings. 
-Sorting the character arrays in-place would reduce the space complexity to O(1), but the space complexity remains O(n) due to the nature of the problem.
 
 # Code
 ```
