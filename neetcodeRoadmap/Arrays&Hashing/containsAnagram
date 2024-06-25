@@ -1,0 +1,57 @@
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+Inorder to avoid using Sort which takes n\*logn for each string with a total of m\*n\*logn for all strings in the array, we will use the frequency of each charcter since we know that anagrams are words made up of the same lettes in the same frequency. For instance, tan and nat are anagrams because they are made up of:
+1 - a
+1 - n
+1 - t  
+
+# Approach
+<!-- Describe your approach to solving the problem. -->
+We can use a data structure Map inorder to group the words with the same frequency of letters. In particular, we can use HashMap so there will be no duplicates. 
+In this case, the Key of the Map is the frequency of each letters transformed into string. While the Value is the List of all the words that have that same character frequency. 
+For example:
+Key: "111" 
+Value: ["tan", "nat"]
+
+To make the counting of the frequency easier, we can initialize an array that contains 26 zeroes: count[0, 0, 0, ..., 0].
+Each zeroes stands for the alphabet. 
+So in our example the transformed Key will be: 
+"10000000000001000001000000"
+
+After iterating all strings in strs, we can simple get all the values in the HashMap and transform into array. 
+
+# Complexity
+- Time complexity:
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+O(m\*n) -> for the character frequency calculation
+O(1) for each string therefore O(M) for the entire array -> for the HashMap operations
+
+**O(m\*n)** -> over all time complexity
+
+- Space complexity:
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+O(m\*n) -> for storing all the key and values in the hashmap
+O(26) which is O(1) in terms of Big-O notation -> for the auxiliary array
+
+**O(m\*n)** -> over all space complexity
+
+# Code
+```
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> res = new HashMap<>();
+        for(String s: strs){
+            int[]count = new int[26];
+            for( char c: s.toCharArray()){
+                count[c-'a']++;
+            }
+            String k= Arrays.toString(count);
+            if(!res.containsKey(k)){
+                res.put(k, new ArrayList<>());
+            }
+            res.get(k).add(s);
+        }
+        return new ArrayList<>(res.values());
+    }
+}
+```
