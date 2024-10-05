@@ -1,0 +1,29 @@
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+        String ret="";
+        int n=0;
+        String longerString="";
+        
+        if(word1.length()<word2.length()){
+            n=word1.length();
+            longerString= word2;
+        }else if(word1.length()>word2.length()){
+            n=word2.length();
+            longerString= word1;
+        }else{
+            n=word1.length();
+            longerString = null;
+        }
+    
+        for(int i=0; i<n; i++ ){
+            ret= ret+word1.charAt(i);
+            ret= ret+word2.charAt(i);
+        }
+
+        if( longerString != null ){
+             ret= ret.concat(longerString.substring(n));
+        }
+
+        return ret;
+    }
+}
