@@ -14,3 +14,26 @@ Example 2:
 Input: flowerbed = [1,0,0,0,1], n = 2
 Output: false
 
+## My Solution 1: Bruteforce Approach
+```
+public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        boolean flag=true;
+        int i=0;
+        while(i<flowerbed.length-1 && n>0){
+            if(flowerbed[i]==0 && flowerbed[i+1]==0){
+                if(i>=1 && flowerbed[i-1]==0){
+                    flowerbed[i]=1;
+                }else{
+                    flowerbed[i+1]=1;
+                }
+                n--;
+            }else{
+                i++;
+            }
+        }
+        if(n!=0){
+            flag=false;
+        }
+        return flag;
+    }
+```
