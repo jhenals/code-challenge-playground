@@ -17,23 +17,24 @@ Output: false
 ## My Solution 1: Bruteforce Approach
 ```
 public boolean canPlaceFlowers(int[] flowerbed, int n) {
-        boolean flag=true;
-        int i=0;
-        while(i<flowerbed.length-1 && n>0){
-            if(flowerbed[i]==0 && flowerbed[i+1]==0){
-                if(i>=1 && flowerbed[i-1]==0){
+        int len=flowerbed.length;
+
+        for(int i=0;i<len;i++){
+            if( n>0 && flowerbed[i]==0 ){
+                boolean leftEmpty= (i==0 || flowerbed[i-1]==0);
+                boolean rightEmpty= (i ==len-1 || flowerbed[i+1]==0);
+
+                if(leftEmpty && rightEmpty){
                     flowerbed[i]=1;
-                }else{
-                    flowerbed[i+1]=1;
+                    n--;
+                    if(n==0){
+                        return true;
+                    }
                 }
-                n--;
-            }else{
-                i++;
+
             }
         }
-        if(n!=0){
-            flag=false;
-        }
-        return flag;
+        return n==0;
+    }
     }
 ```
