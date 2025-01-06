@@ -38,3 +38,17 @@ public boolean canPlaceFlowers(int[] flowerbed, int n) {
     }
     }
 ```
+
+### Approach
+<!-- Describe your approach to solving the problem. -->
+1. Check if the left plot is empty or if the current plot is the first plot of the flowerbed. 
+2. Check if the right plot is empty or if the current plot is the last plot of the flowerbed.
+3. If both returns true, then we can plant in the current plot. We need to decrease then the numbers of plant. If n is already 0, then we can directly return true. Otherwise, the iteration continues. 
+4. When the iteration finishes and all n plants are planted, then we return true (n==0). 
+
+### Complexity
+- Time complexity: O(n) where n is the length of the flowerbed because we need to iterate through the entire array. 
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity: O(1) because no auxiliary array was created
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
