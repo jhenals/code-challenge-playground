@@ -1,0 +1,51 @@
+# Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+The problem requires us to find the greatest common divisor (GCS) of two strings, meaning the longest string that can be repeatedly concatenated to form both given strings. 
+The core intuition behind the approach is:
+1. If two strings has a common divisor string, their concatenation in both orders (str1+str2) and (str2+str1) must be equal. Otherwise, there is no valid common divisor string. 
+2. The leangth of the greatest common divisor will be the GCD of the length of str1 and str2. This is because if a substring can evenly construct both strings, its length must be divide both string lengths. 
+
+# Approach
+<!-- Describe your approach to solving the problem. -->
+1. Check if the concatenation of str1 and str2 in both ways are equal. If not, we return an empty string ("") because this means there is no valid common divisor substring. 
+2. Compute the GCD of string lengths. In this case, we use the Euclidean algorithm in finding the GCD instead of the recursive because recursion is not efficient for larger numbers. 
+3. Extract a substring up to length (gcd(A,b)).
+
+
+# Complexity
+- Time complexity:O(N+M)
+Over all complexity is O(N+M+log(min(N,M)))
+    * String comcatenation and comparison contributes O(N+M) which is also the dominant term
+    * The Euclidean algotrith in gcd() function runs in O(log(min(N,M))), which is much smaller
+    Thus, the overall time complexity in the worst case is O(M+N)
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity: O(gcd(N,M))
+    * Concatenation does not create new strings in memory
+    * The gcd() fucntion uses only O(1) extra space 
+    * Substring extraction creates a new string of size O(K) where K is the GCD of N and M.  The substring operation itslef does not require extra memory for processing, but the returned string requires O(K) space or O(gcd(N,M)) 
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+# Code
+```java []
+class Solution {
+    public String gcdOfStrings(String str1, String str2) {
+        
+        if( (str1+str2).equals(str2+str1) ){
+            int lenCommonString= gcd(str1.length(), str2.length());
+            return str1.substring(0,lenCommonString);
+        }else{
+            return "";
+        }
+    }
+
+    private int gcd(int a, int b){
+        while(b!=0){
+            int tmp=b;
+            b= a % b;
+            a=tmp;
+        }
+        return a;
+    }
+}
+```
