@@ -1,5 +1,5 @@
 # About
-This repository serves as a dedicated space where I embark on a journey to enhance my programming skills and deepen my understanding of algorithms and data structures. 
+A collection of coding challenges, algorithms, and data structure implementations designed for practice, learning, and interview prep.
 
 ## What you'll find here:
 - Algorithms and insights I used to solve the problems
